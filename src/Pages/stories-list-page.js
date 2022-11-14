@@ -14,7 +14,7 @@ export const StoriesPage = () => {
     const { Title } = Typography;
     const [storyIds, setStoryIds] = useState([]);
     useEffect(() => {
-    getStoryIds().then(data => setStoryIds(data));
+    getStoryIds().then(data => setStoryIds(data).slice(0,100));
   }, []);
 
 
@@ -31,7 +31,7 @@ export const StoriesPage = () => {
       },
       pageSize: 5,
     }}
-    dataSource={storyIds.slice(0,100)}
+    dataSource={storyIds}
     footer={
       <div>
         <RefreshButton/>
